@@ -1,0 +1,74 @@
+/*FOR BODY*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+/*FOR BUTTON*/ 
+  button.main{
+      width: 20%;
+      height: 20%;
+      border: 0;
+  }
+  
+/*FOR  IMAGES*/
+  img {
+    border: 0;
+    outline: 0px solid transparent;
+  }
+  
+  .img_logo {
+    width: 14%;
+    padding: 5px;
+  }
+
+  .img-fluid{
+    width: 80%;
+  }
+  
+/*FOR   INPUT GROUP*/
+  .input-group{
+    display: ruby-base;
+    border: 0;
+    outline: 0px solid transparent;
+  }
+  
+  input.form-control{
+    width: 70%;
+  }
+
+  select{
+    width: 50%;
+    margin-left: 10px;
+  }
+  
+/*FOR TITLE*/
+  #main_title{
+    margin-top: 11%;
+  }
+
+/*FOR HEADER*/
+.library-header{
+    background-image: url('https://cdn.bfldr.com/SH6M70M3/as/vrpsqgr58whvfcj3xswp66t/filled_bookshelf_by_Alfons_Morales_via_Unsplash?width=398&height=256&fit=crop&auto=webp');
+    background-size: cover;
+  background-repeat: no-repeat;
+}
+  
+  div.header-mask{
+    background-color: rgba(64, 43, 19, 0.655)
+  }
+  
+
+  /* FOR LIST*/
+  .book-table{
+    width: 100%;
+  }
+
+    td {
+    background-color: rgb(248, 229, 206);
+    padding: 10px;
+    border-radius: round;
+  }
+    a {
+    margin-bottom: 20px;
+    margin-right: 25px;
+  }

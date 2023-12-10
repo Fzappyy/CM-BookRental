@@ -1,0 +1,86 @@
+<body>
+    <div class="container py-3">
+    <app-adminnav></app-adminnav>
+      <main>
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6" id="main_title">
+              <h2><b>Welcome {{display}}</b></h2>
+              <p>Stay Inside, Stay Inspired. Joseninan Library delivers the best service.</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search Books, Articles, Resources..." aria-label="Search Books, Articles, Resources..." aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button">Browse</button>
+                </div>
+              </div>
+           </div>
+        
+            <div class="col-xl-6 col-md-5 col-md-4">
+              <img src="https://img.freepik.com/free-vector/home-office-desk-with-casters-chair_3446-444.jpg?w=2000" 
+              alt="responsive webite" class="img-fluid">
+            </div>
+            </div>
+            </div>
+    
+            <!-- HEADER CARD -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-blue">
+                        <div class="inner">
+                            <h3>Add Books </h3>
+                            <p> Add published books </p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <a routerLinkActive="active" routerLink="/admin-add" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+        
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-green">
+                        <div class="inner">
+                            <h3> Check Books </h3>
+                            <p>Check Borrowed Books</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-book" aria-hidden="true"></i>
+                        </div>
+                        <a class="card-box-footer" routerLinkActive="active" routerLink="/admin-check">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-red">
+                        <div class="inner">
+                            <h3>Remove Books</h3>
+                            <p>Clear some shelves </p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        </div>
+                        <a class="card-box-footer" routerLinkActive="active" routerLink="/admin-remove">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6">
+                    <div class="card-box bg-orange">
+                        <div class="inner">
+                            <h3>Book Database</h3>
+                            <p>Explore the Archives</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-newspaper" aria-hidden="true"></i>
+                        </div>
+                        <a class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>            
+            </div>
+        </div>
+        </main>
+        <app-footernav></app-footernav>
+      </div>
+    </body>
+    
+    

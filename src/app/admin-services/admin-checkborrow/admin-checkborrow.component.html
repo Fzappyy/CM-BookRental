@@ -1,0 +1,62 @@
+<body>
+    <div class="container py-3">
+      <app-adminnav></app-adminnav>
+    
+    <main>
+    <div class="library-header bg-cover">
+      <div class="header-mask py-2 text-white">
+          <h1 class="display-4 font-weight-bold" style="margin-left:13px">Check Books</h1>
+          <p class="time mt-2" style="margin-left:13px">As Of {{today | date:'fullDate'}} {{today | date:'h:mm:ss a'}} (Phillipine Time)</p>
+      </div>
+    </div>
+    
+    <div class="book-card row-3 col-3 mt-3">
+        <div class="card-body row">
+          <form [formGroup]="removeForm">
+    
+            <div class="row">
+                <div class="col">
+                    <label for="bookid">Enter UserID To Check</label>
+                    <input type="text" class="form-control" id="bookid" formControlName="bookid" #userid/>
+                  </div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary mt-3 mb-5" [disabled]="!removeForm.valid" (click)="getUserBRW(userid.value)">
+              Check User
+            </button>
+            <button type="submit" class="btn btn-danger mt-3 mb-5" style="margin-left: 10px;" [disabled]="!removeForm.valid" (click)="clearEntry()">
+                Clear
+              </button>
+          </form>
+        </div>
+        
+      </div>
+
+      <table class="book-table">
+        <h4>Borrowed Book Archives</h4>
+        <h5 *ngIf="bookname ==='General'">User: {{bookname}}</h5>
+        <h5 *ngIf="bookname !=='General'">User: {{bookname}}</h5>
+        <tr><td><b><a>Author</a></b></td>
+
+            <td><b><a>Title</a></b></td>
+
+            <td><b><a>Database ID</a></b></td>
+
+            <td><b><a>Status</a></b></tr>
+
+        <ng-container *ngFor="let group of bookusers">
+
+            <tr><td><a>{{group.author}}</a></td>
+
+            <td><a>{{group.name}}</a></td>
+
+            <td><a>{{group.id}}</a></td>
+
+            <td><a>{{group.status}}</a></td></tr>
+
+        </ng-container>  
+   </table>
+    </main>
+      <app-footernav></app-footernav>
+    </div>
+    </body>

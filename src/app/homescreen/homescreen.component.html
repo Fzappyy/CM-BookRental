@@ -1,0 +1,50 @@
+<body>
+  <div class="container py-3">
+    <app-headnav></app-headnav>
+
+    <main>
+      <div class="container pt-5 mt-5">
+        <div class="container d-flex justify-content-center align-items-center">
+          <div
+            class="container d-flex justify-content-center align-items-center"
+          >
+            <div class="container">
+              <h2><b>Welcome To Pawlse</b></h2>
+              <p>
+                Read. Return. Repeat. Your Books, Your Way.<br />Sign in now to
+                get started.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary px-4 me-3 main"
+                routerLinkActive="active"
+                routerLink="/user-signin"
+              >
+                <b>User</b>
+              </button>
+              <button
+                type="button"
+                routerLinkActive="active"
+                routerLink="/admin-signin"
+                class="btn btn-success main"
+              >
+                Admin
+              </button>
+            </div>
+          </div>
+          <div
+            class="container d-flex justify-content-center align-items-center"
+          >
+            <img
+              src="https://img.freepik.com/free-vector/focused-tiny-people-reading-books_74855-5836.jpg?size=626&ext=jpg&ga=GA1.1.1934805859.1697360303&semt=sph"
+              alt="responsive webite"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <app-footernav></app-footernav>
+  </div>
+</body>

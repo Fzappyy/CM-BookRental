@@ -1,0 +1,106 @@
+<body>
+  <div class="container py-3">
+    <app-adminnav></app-adminnav>
+
+    <main>
+      <div class="airline-header bg-cover">
+        <div class="header-mask py-2 text-white">
+          <h1 class="display-4 font-weight-bold" style="margin-left: 13px">
+            Add Books
+          </h1>
+          <p class="time mt-2" style="margin-left: 13px">
+            As Of {{ today | date : "fullDate" }}
+            {{ today | date : "h:mm:ss a" }} (Phillipine Time)
+          </p>
+        </div>
+      </div>
+
+      <div class="book-card row-3 col-3 mt-3">
+        <div class="card-body row">
+          <form [formGroup]="addForm">
+            <div class="row">
+              <div class="col">
+                <label for="bookid" id="bookid">Book ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookid"
+                  formControlName="bookid"
+                  #bookid
+                />
+              </div>
+
+              <div class="col">
+                <label for="title" id="title">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="title"
+                  formControlName="title"
+                  #title
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="author" id="author">Author</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="author"
+                  formControlName="author"
+                  #author
+                />
+              </div>
+
+              <div class="col">
+                <label for="published" id="published">Published</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="published"
+                  formControlName="published"
+                  #published
+                />
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <label for="published" id="setstatus">Set Status</label>
+              <select
+                class="form-control"
+                id="exampleCategory"
+                required
+                formControlName="status"
+                #status
+              >
+                <option *ngFor="let status of setStatus">
+                  {{ status.type }}
+                </option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-success mt-3"
+              [disabled]="!addForm.valid"
+              (click)="
+                addBook(
+                  bookid.value,
+                  title.value,
+                  author.value,
+                  published.value,
+                  status.value
+                )
+              "
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <app-footernav></app-footernav>
+  </div>
+</body>

@@ -1,0 +1,54 @@
+/*FOR BODY*/
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*FOR HEADER*/
+.library-header{
+  background-color: rgb(44, 88, 61);  
+}
+
+/*FOR BUTTON*/
+button{
+    border: 0;
+    margin-right: 10px;
+}
+
+/*FOR IMAGES*/
+img {
+  border: 0;
+  outline: 0px solid transparent;
+}
+
+.img_logo {
+  width: 14%;
+  padding: 5px;
+}
+
+.img_feature{
+  width: 1em;
+  height: 1em;
+}
+
+/*FOR INPUT*/
+.input-group{
+  display: ruby-base;
+  border: 0;
+  outline: 0px solid transparent;
+}
+
+input.form-control{
+  width: 50%;
+}
+
+/*FOR TEXT*/
+#main_title{
+  margin-top: 11%;
+}
+     
+/*FOR CARD ALIGNMENT*/
+.book-card {
+  display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+
+}
