@@ -23,8 +23,7 @@ export class AdminAddComponent implements OnInit {
     author: ['', Validators.required],
     published: ['', Validators.required],
     status: ['', Validators.required],
-    days: [0, Validators.required],
-    date: ['', Validators.required],
+    
   });
 
 
