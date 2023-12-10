@@ -3,16 +3,10 @@
     <app-adminnav></app-adminnav>
 
     <main>
-      <div class="airline-header bg-cover">
-        <div class="header-mask py-2 text-white">
-          <h1 class="display-4 font-weight-bold" style="margin-left: 13px">
-            Add Books
-          </h1>
-          <p class="time mt-2" style="margin-left: 13px">
-            As Of {{ today | date : "fullDate" }}
-            {{ today | date : "h:mm:ss a" }} (Phillipine Time)
-          </p>
-        </div>
+      <div
+        class="bg-success rounded text-white p-5 container-fluid d-flex justify-content-center align-items-center"
+      >
+        <h1 class="display-4 font-weight-bold">Add Books</h1>
       </div>
 
       <div class="book-card row-3 col-3 mt-3">
@@ -64,6 +58,18 @@
                   #published
                 />
               </div>
+
+              <div class="col">
+                <label for="price" id="price">Price per day</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="price"
+                  formControlName="price"
+                  #price
+                  value="0"
+                />
+              </div>
             </div>
 
             <div class="row mt-3">
@@ -91,11 +97,12 @@
                   title.value,
                   author.value,
                   published.value,
-                  status.value
+                  status.value,
+                  price.value
                 )
               "
             >
-              Submit
+              Add book
             </button>
           </form>
         </div>

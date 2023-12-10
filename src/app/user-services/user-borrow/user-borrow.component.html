@@ -1,66 +1,111 @@
 <body>
-<div class="container py-3">
-<app-usernav></app-usernav>
+  <div class="container py-3">
+    <app-usernav></app-usernav>
 
-<main>
-    <div class="container py-3">
-        <div class="library-header bg-cover">
-          <div class="header-mask py-5 text-center text-white">
-              <h1 class="display-4 font-weight-bold">Browse Books</h1>
-          </div>
-          </div>
-      
-          <div class="row">
-            <div class="col book-users">
+    <main>
+      <div class="container py-3">
+        <div
+          class="bg-success rounded text-white p-5 container-fluid d-flex justify-content-center align-items-center"
+        >
+          <h1 class="display-4 font-weight-bold">Rent Books</h1>
+        </div>
+
+        <div class="row">
+          <div class="col book-users">
             <div class="col mr-5 mt-2">
               <div class="book-card">
+                <div
+                  class="card"
+                  style="width: 18rem"
+                  *ngFor="let book of bookusers$"
+                >
+                  <img
+                    class="card-img-top"
+                    src="https://media.istockphoto.com/id/1461129136/vector/stack-of-book-with-good-quality-with-good-color.jpg?b=1&s=612x612&w=0&k=20&c=brrtIhmCK4B6KHO2uqSoiZ_CeziQmnvGEvLvIhOUOHk="
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <a>Book: </a>
+                        <a>{{ book.name }}</a>
+                      </li>
 
-                <div class="card" style="width: 18rem;" *ngFor="let book of bookusers$">
-                    <img class="card-img-top" src="https://cdn3d.iconscout.com/3d/premium/thumb/book-stack-5498522-4577227.png" alt="Card image cap">
-                    <div class="card-body">
-                      <ul class="list-group list-group-flush">
-                
+                      <li class="list-group-item">
+                        <a>Author: </a>
+                        <a>{{ book.author }}</a>
+                      </li>
+
+                      <li class="list-group-item">
+                        <a>ID: </a>
+                        <a>{{ book.bookid }}</a>
+                      </li>
+
+                      <li class="list-group-item">
+                        <a>Published: </a>
+                        <a>{{ book.published }}</a>
+                      </li>
+                      <form #f="ngForm">
                         <li class="list-group-item">
-                            <a>Book: </a>
-                            <a>{{book.name}}</a>
-                          </li>
-            
-                        <li class="list-group-item">
-                          <a>Author: </a>
-                          <a>{{book.author}}</a>
+                          <a>Days: </a>
+                          <input
+                            type="number"
+                            name="days"
+                            ngModel
+                            class="border border-success rounded"
+                            value="1"
+                          />
                         </li>
-            
                         <li class="list-group-item">
-                          <a>ID: </a>
-                          <a>{{book.bookid}}</a>
-                          </li>
-                    
-                        <li class="list-group-item">
-                          <a>Published: </a>
-                          <a>{{book.published}}</a>
+                          <a>Date: </a>
+                          <input
+                            type="date"
+                            name="date"
+                            ngModel
+                            class="border border-success rounded px-3 py-1"
+                          />
                         </li>
-            
-                        <li class="list-group-item">
-                          <a>Status: </a>
-                          <a>{{book.status}}</a>
-                          </li>
-                    
-                      </ul>
-                      <button class="btn btn-success" (click)="borrowBook(book)" [disabled]="book.status=='BORROWED'">Borrow Book</button>
-                      <button class="btn btn-danger" (click)="returnBook(book)"[disabled]="book.status=='AVAILABLE'">Return Book</button>
-                    </div>
+                      </form>
+
+                      <li class="list-group-item">
+                        <a>Price: </a>
+                        <a>{{ book.price }}</a>
+                      </li>
+
+                      <li class="list-group-item">
+                        <a>Total: </a>
+                        <a>{{ book.total }}</a>
+                      </li>
+
+                      <li class="list-group-item">
+                        <a>Status: </a>
+                        <a>{{ book.status }}</a>
+                      </li>
+                    </ul>
+                    <button
+                      class="btn btn-success"
+                      (click)="borrowBook(book, f)"
+                      [disabled]="book.status == 'BORROWED'"
+                    >
+                      Borrow Book
+                    </button>
+                    <button
+                      class="btn btn-danger"
+                      (click)="returnBook(book)"
+                      [disabled]="book.status == 'AVAILABLE'"
+                    >
+                      Return Book
+                    </button>
                   </div>
-
                 </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="container py-3"></div>
+    </main>
 
-        </div><div class="container py-3">
-     </div>
-</main>
-
-<app-footernav></app-footernav>
-   </div>   
+    <app-footernav></app-footernav>
+  </div>
 </body>
-

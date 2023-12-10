@@ -14,12 +14,14 @@ export interface Book {
     status: string; 
     published: string; 
     author: string; 
-    
+    price: any;
+    days: number;
+    total: number;
+    date: any;
 }
 
 export const Setbook_Status = [
     { value: Book_Status.BRW, type: 'BORROWED' },
     { value: Book_Status.AVL, type: 'AVAILABLE' },
-    { value: Book_Status.DUE, type: 'DUE' },
-    { value: Book_Status.RMV, type: 'REMOVED' }
+    
   ];

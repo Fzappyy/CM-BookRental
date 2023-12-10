@@ -1,62 +1,115 @@
 <body>
-    <div class="container py-3">
-      <app-adminnav></app-adminnav>
-    
+  <div class="container py-3">
+    <app-adminnav></app-adminnav>
+
     <main>
-    <div class="library-header bg-cover">
-      <div class="header-mask py-2 text-white">
-          <h1 class="display-4 font-weight-bold" style="margin-left:13px">Check Books</h1>
-          <p class="time mt-2" style="margin-left:13px">As Of {{today | date:'fullDate'}} {{today | date:'h:mm:ss a'}} (Phillipine Time)</p>
+      <div
+        class="bg-success rounded text-white p-5 container-fluid d-flex justify-content-center align-items-center"
+      >
+        <h1 class="display-4 font-weight-bold">Borrowed Books</h1>
       </div>
-    </div>
-    
-    <div class="book-card row-3 col-3 mt-3">
+
+      <div class="book-card row-3 col-3 mt-3">
         <div class="card-body row">
           <form [formGroup]="removeForm">
-    
             <div class="row">
-                <div class="col">
-                    <label for="bookid">Enter UserID To Check</label>
-                    <input type="text" class="form-control" id="bookid" formControlName="bookid" #userid/>
-                  </div>
+              <div class="col">
+                <label for="bookid">Enter UserID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="bookid"
+                  formControlName="bookid"
+                  #userid
+                />
+              </div>
             </div>
-    
-            <button type="submit" class="btn btn-primary mt-3 mb-5" [disabled]="!removeForm.valid" (click)="getUserBRW(userid.value)">
+
+            <button
+              type="submit"
+              class="btn btn-primary mt-3 mb-5"
+              [disabled]="!removeForm.valid"
+              (click)="getUserBRW(userid.value)"
+            >
               Check User
             </button>
-            <button type="submit" class="btn btn-danger mt-3 mb-5" style="margin-left: 10px;" [disabled]="!removeForm.valid" (click)="clearEntry()">
-                Clear
-              </button>
+            <button
+              type="submit"
+              class="btn btn-danger mt-3 mb-5"
+              style="margin-left: 10px"
+              [disabled]="!removeForm.valid"
+              (click)="clearEntry()"
+            >
+              Clear
+            </button>
           </form>
         </div>
-        
       </div>
 
       <table class="book-table">
-        <h4>Borrowed Book Archives</h4>
-        <h5 *ngIf="bookname ==='General'">User: {{bookname}}</h5>
-        <h5 *ngIf="bookname !=='General'">User: {{bookname}}</h5>
-        <tr><td><b><a>Author</a></b></td>
+        <h4>Borrowed Books</h4>
+        <h5 *ngIf="bookname === 'General'">User: {{ bookname }}</h5>
+        <h5 *ngIf="bookname !== 'General'">User: {{ bookname }}</h5>
+        <tr>
+          <td>
+            <b><a>Database ID</a></b>
+          </td>
+          <td>
+            <b><a>Author</a></b>
+          </td>
 
-            <td><b><a>Title</a></b></td>
+          <td>
+            <b><a>Title</a></b>
+          </td>
 
-            <td><b><a>Database ID</a></b></td>
-
-            <td><b><a>Status</a></b></tr>
+          <td>
+            <b><a>Price</a></b>
+          </td>
+          <td>
+            <b><a>Rent Date</a></b>
+          </td>
+          <td>
+            <b><a>Duration (Days)</a></b>
+          </td>
+          <td>
+            <b><a>Total Payment</a></b>
+          </td>
+          <td>
+            <b><a>Status</a></b>
+          </td>
+        </tr>
 
         <ng-container *ngFor="let group of bookusers">
+          <tr>
+            <td>
+              <a>{{ group.id }}</a>
+            </td>
+            <td>
+              <a>{{ group.author }}</a>
+            </td>
+            <td>
+              <a>{{ group.name }}</a>
+            </td>
 
-            <tr><td><a>{{group.author}}</a></td>
-
-            <td><a>{{group.name}}</a></td>
-
-            <td><a>{{group.id}}</a></td>
-
-            <td><a>{{group.status}}</a></td></tr>
-
-        </ng-container>  
-   </table>
+            <td>
+              <a>{{ group.price }}</a>
+            </td>
+            <td>
+              <a>{{ group.date }}</a>
+            </td>
+            <td>
+              <a>{{ group.days }}</a>
+            </td>
+            <td>
+              <a>{{ group.total }}</a>
+            </td>
+            <td>
+              <a>{{ group.status }}</a>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
     </main>
-      <app-footernav></app-footernav>
-    </div>
-    </body>
+    <app-footernav></app-footernav>
+  </div>
+</body>

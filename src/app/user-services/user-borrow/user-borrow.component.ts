@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subject, first } from 'rxjs';
 import { Book } from 'src/app/models/books/book';
 import { User } from 'src/app/models/user';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { CRUDService } from 'src/app/shared/crud.service';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'user-borrow',
@@ -36,17 +37,19 @@ export class UserBorrowComponent implements OnInit {
   }
 
   destroy() {
-    // Emit something to stop all Observables
+
     this.unsubscribe.next();
-    // Complete the notifying Observable to remove it
     this.unsubscribe.complete();
   }
 
-  //Can only borrow 5 books - already set on services
-  borrowBook(book: Book) {
+  borrowBook(book: Book, f: any) {
     if( this.data.BRWD_books!.length < 3){
       this.data.BRWD_books!.push(book);
       book.status = 'BORROWED';
+      book.days = f.value.days;
+      book.date = f.value.date;
+      book.total = (book.price * f.value.days)
+      console.log(book.total);
       this.crud.updateBook(this.data, book);
       console.log ('Book Borrowed by' + this.data!.fname);
     }
@@ -58,7 +61,6 @@ export class UserBorrowComponent implements OnInit {
        
       
   } 
-    // Returns ex. {success: true, data: 'Book status changed - Borrowed"}
   
   returnBook(book: Book) {
     
@@ -69,12 +71,12 @@ export class UserBorrowComponent implements OnInit {
        })
        console.log(this.data.BRWD_books)
         book.status = 'AVAILABLE';
+        book.total = 0;
+        book.date = '';
         this.crud.updateBook(this.data, book);
         console.log ('Book Returned by' + this.data!.fname);
         
         
-        
-     
-    // Returns ex. {success: true, data: 'Book status changed - AVAILABLE"}
+
   }
 }

@@ -23,7 +23,8 @@ export class AdminAddComponent implements OnInit {
     author: ['', Validators.required],
     published: ['', Validators.required],
     status: ['', Validators.required],
-    
+    days: [0, Validators.required],
+    date: ['', Validators.required],
   });
 
 
@@ -36,13 +37,17 @@ export class AdminAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addBook(bookid: string, title: string, author: string, published: string, status: string){
+  addBook(bookid: string, title: string, author: string, published: string, status: string, price: any){
     this.book.id = bookid;
     this.book.bookid = bookid;
     this.book.name = title;
     this.book.author = author;
     this.book.published = published;
     this.book.status = status.toUpperCase();
+    this.book.price = price;
+    this.book.days = 1;
+    this.book.total = 0;
+    this.book.date = '';
 
     this.crud.addBook(this.book);
     alert("Successfully Added");
